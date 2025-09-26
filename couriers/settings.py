@@ -143,12 +143,18 @@ REST_FRAMEWORK = {
     ]
 }
 
+
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'shiparamax.com'
-EMAIL_PORT = 465
-EMAIL_USE_SSL = True 
-EMAIL_HOST_USER = 'support@shiparamax.com'
-EMAIL_HOST_PASSWORD = 'Lagos@2025'
-DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True   # Gmail requires TLS on port 587
+EMAIL_USE_SSL = False  # Must be False if using TLS
+EMAIL_HOST_USER = 'eguloyas3@gmail.com'
+EMAIL_HOST_PASSWORD = 'yvtszsvjewpqayuv'  # App password
+DEFAULT_FROM_EMAIL = 'Shiparama Logistics <eguloyas3@gmail.com>'
+
+
+
+
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

@@ -4,10 +4,7 @@ from rest_framework import status
 from .models import Track, TrackingPackage
 from .serializers import *
 from rest_framework.permissions import AllowAny
-# import json
-# import requests
-# from django.http import JsonResponse
-# from django.views.decorators.csrf import csrf_exempt
+
 
 
 
@@ -32,22 +29,6 @@ class TrackingAPIView(APIView):
             "track": track_data,
             "packages": package_data
         })
-
-
-# class TrackingAllAPIView(APIView):
-#     permission_classes = [AllowAny]
-
-#     def get(self, request):
-#         tracks = Track.objects.all()
-#         packages = TrackingPackage.objects.all()
-
-#         track_data = TrackSerializer(tracks, many=True).data
-#         package_data = TrackingPackageSerializer(packages, many=True).data
-
-#         return Response({
-#             "tracks": track_data,
-#             "packages": package_data
-#         })
 
 
 
