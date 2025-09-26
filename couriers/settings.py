@@ -16,14 +16,14 @@ SECRET_KEY = 'django-insecure-1u@9hpeg(x-5(y-5uc@(u(f+b-@zr_ul5_0*zfn+d1cjw0l5&0
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    # "courierbackend-1.onrender.com",
+    "backend-c4vp.onrender.com",
     "localhost",
     "127.0.0.1",
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://courierbackend-1.onrender.com',
-    'https://www.courierbackend-1.onrender.com',
+    'https://backend-c4vp.onrender.com',
+    'hhttps://www.backend-c4vp.onrender.com',
 ]
 
 # Application definition
