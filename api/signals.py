@@ -6,19 +6,49 @@ from .models import *
 
 
 
+# @receiver(post_save, sender=Label)
+# def send_label_email(sender, instance, created, **kwargs):
+#     if created:  
+#         subject = f"Shiparama Logistics - New Label Created for {instance.track.tracking_id}"
+#         message = (
+#             f"Dear {instance.name},\n\n"
+#             f"We are pleased to inform you that a new shipment has been created for your tracking ID: {instance.track.tracking_id}.\n"
+#             f"Your shipment is now being processed and is on its way. You can track the status of your items anytime on our website:\n"
+#             f"https://www.shiparama.org/\n\n"
+#             f"If you have any questions or need assistance, please do not hesitate to contact our customer support team.\n\n"
+#             f"Thank You,\n"
+#             f"Shiparama Logistics"
+#         )
+#         recipient = instance.email
+
+#         send_mail(
+#             subject,
+#             message,
+#             settings.DEFAULT_FROM_EMAIL,  
+#             [recipient],                 
+#             fail_silently=False,
+#         )
+
+
+
 @receiver(post_save, sender=Label)
 def send_label_email(sender, instance, created, **kwargs):
     if created:  
         subject = f"Shiparama Logistics - New Label Created for {instance.track.tracking_id}"
+        
+        # Dynamically build the full tracking URL
+        tracking_url = f"{settings.SITE_DOMAIN}/track/{instance.track.tracking_id}/"
+
         message = (
             f"Dear {instance.name},\n\n"
             f"We are pleased to inform you that a new shipment has been created for your tracking ID: {instance.track.tracking_id}.\n"
-            f"Your shipment is now being processed and is on its way. You can track the status of your items anytime on our website:\n"
-            f"https://www.shiparama.org/\n\n"
+            f"Your shipment is now being processed and is on its way. You can track the status of your items anytime here:\n"
+            f"{tracking_url}\n\n"
             f"If you have any questions or need assistance, please do not hesitate to contact our customer support team.\n\n"
             f"Thank You,\n"
             f"Shiparama Logistics"
         )
+
         recipient = instance.email
 
         send_mail(
@@ -28,9 +58,6 @@ def send_label_email(sender, instance, created, **kwargs):
             [recipient],                 
             fail_silently=False,
         )
-
-
-
 
 
 
