@@ -156,6 +156,8 @@ EMAIL_HOST_USER = 'eguloyas3@gmail.com'
 EMAIL_HOST_PASSWORD = 'yvtszsvjewpqayuv'
 DEFAULT_FROM_EMAIL = 'Shiparama Logistics <eguloyas3@gmail.com>'
 
+# settings.py
+SITE_DOMAIN = 'https://www.shiparama.org/'  # Replace with your actual domain
 
 
 
