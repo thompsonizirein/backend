@@ -21,8 +21,8 @@ ALLOWED_HOSTS = [
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://backend-6mf8.onrender.com',
-    'https://www.backend-6mf8.onrender.com',
+    'https://shiparama.org',
+    'https://www.shiparama.org,',
 ]
 
 # Application definition
