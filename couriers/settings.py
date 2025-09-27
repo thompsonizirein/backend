@@ -149,12 +149,13 @@ REST_FRAMEWORK = {
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True   
-EMAIL_USE_SSL = False  
+EMAIL_PORT = 465  # Use port 465 for SSL
+EMAIL_USE_TLS = False  # Do not use TLS
+EMAIL_USE_SSL = True  # Use SSL
 EMAIL_HOST_USER = 'eguloyas3@gmail.com'
-EMAIL_HOST_PASSWORD = 'yvtszsvjewpqayuv' 
+EMAIL_HOST_PASSWORD = 'yvtszsvjewpqayuv'
 DEFAULT_FROM_EMAIL = 'Shiparama Logistics <eguloyas3@gmail.com>'
+
 
 
 
