@@ -6,8 +6,7 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
+
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-1u@9hpeg(x-5(y-5uc@(u(f+b-@zr_ul5_0*zfn+d1cjw0l5&0'
@@ -136,8 +135,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
 
 REST_FRAMEWORK = {
-    # Use Django's standard `django.contrib.auth` permissions,
-    # or allow read-only access for unauthenticated users.
+
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
     ]
@@ -149,15 +147,15 @@ REST_FRAMEWORK = {
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 465  # Use port 465 for SSL
-EMAIL_USE_TLS = False  # Do not use TLS
-EMAIL_USE_SSL = True  # Use SSL
+EMAIL_PORT = 465  
+EMAIL_USE_TLS = False  
+EMAIL_USE_SSL = True  
 EMAIL_HOST_USER = 'eguloyas3@gmail.com'
 EMAIL_HOST_PASSWORD = 'yvtszsvjewpqayuv'
 DEFAULT_FROM_EMAIL = 'Shiparama Logistics <eguloyas3@gmail.com>'
 
 # settings.py
-SITE_DOMAIN = 'https://www.shiparama.org/'  # Replace with your actual domain
+SITE_DOMAIN = 'https://www.shiparama.org/'  
 
 
 
