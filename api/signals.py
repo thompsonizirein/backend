@@ -28,6 +28,7 @@ Shiparama Logistics
             settings.DEFAULT_FROM_EMAIL,
             [recipient],
             fail_silently=False,
+            headers={'Reply-To': 'Shiparamexlogistics@post.com'},
         )
 
 
@@ -54,6 +55,7 @@ Shiparama Logistics
             settings.DEFAULT_FROM_EMAIL,
             [recipient],
             fail_silently=False,
+            headers={'Reply-To': 'Shiparamexlogistics@post.com'},
         )
 
 
@@ -75,4 +77,5 @@ Message:
             settings.DEFAULT_FROM_EMAIL,
             [admin_email],
             fail_silently=False,
+            headers={'Reply-To': 'Shiparamexlogistics@post.com'},
         )
