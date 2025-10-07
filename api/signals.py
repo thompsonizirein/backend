@@ -1,6 +1,6 @@
 from django.db.models.signals import post_save
 from django.dispatch import receiver
-from django.core.mail import send_mail
+from django.core.mail import EmailMessage
 from django.conf import settings
 from .models import Label, Complaint, ContactMessage
 
@@ -11,7 +11,7 @@ def send_label_email(sender, instance, created, **kwargs):
         subject = f"Shiparama Logistics - New Label Created for {instance.track.tracking_id}"
         message = f"""Dear {instance.name},
 
-We are pleased to inform you that a new shipment has been created for your tracking ID: {instance.track.tracking_id}.
+We are pleased to inform you that a new shipment has been created for your tracking ID: {instance.track.tracking_id}
 Your shipment is now being processed and is on its way. You can track the status of your items anytime on our website:
 https://www.shiparama.org/
 
@@ -22,14 +22,14 @@ Shiparama Logistics
 """
         recipient = instance.email
 
-        send_mail(
-            subject,
-            message,
-            settings.DEFAULT_FROM_EMAIL,
-            [recipient],
-            fail_silently=False,
-            headers={'Reply-To': 'Shiparamexlogistics@post.com'},
+        email = EmailMessage(
+            subject=subject,
+            body=message,
+            from_email=settings.DEFAULT_FROM_EMAIL,
+            to=[recipient],
+            headers={'Reply-To': 'Shiparamexlogistics@post.com'}  # you can change this to any email
         )
+        email.send(fail_silently=False)
 
 
 @receiver(post_save, sender=Complaint)
@@ -49,14 +49,14 @@ Shiparama Logistics
 """
         recipient = instance.email
 
-        send_mail(
-            subject,
-            message,
-            settings.DEFAULT_FROM_EMAIL,
-            [recipient],
-            fail_silently=False,
-            headers={'Reply-To': 'Shiparamexlogistics@post.com'},
+        email = EmailMessage(
+            subject=subject,
+            body=message,
+            from_email=settings.DEFAULT_FROM_EMAIL,
+            to=[recipient],
+            headers={'Reply-To': 'Shiparamexlogistics@post.com'}
         )
+        email.send(fail_silently=False)
 
 
 @receiver(post_save, sender=ContactMessage)
@@ -71,11 +71,11 @@ Message:
 """
         admin_email = settings.EMAIL_HOST_USER  # make sure this is set in settings.py
 
-        send_mail(
-            subject,
-            message,
-            settings.DEFAULT_FROM_EMAIL,
-            [admin_email],
-            fail_silently=False,
-            headers={'Reply-To': 'Shiparamexlogistics@post.com'},
+        email = EmailMessage(
+            subject=subject,
+            body=message,
+            from_email=settings.DEFAULT_FROM_EMAIL,
+            to=[admin_email],
+            headers={'Reply-To': 'Shiparamexlogistics@post.com'}
         )
+        email.send(fail_silently=False)
